@@ -1,0 +1,4 @@
+SELECT date, COUNT(date) FROM squirrel_data AS number_of_sightings
+GROUP BY date
+ORDER BY COUNT(date) DESC
+LIMIT 1

@@ -1,0 +1,5 @@
+SELECT  age, COUNT(running) as number_of_squirrels_that_run_by_age
+FROM squirrel_data
+WHERE running = 'True'
+GROUP BY age 
+ORDER BY COUNT(running)DESC;

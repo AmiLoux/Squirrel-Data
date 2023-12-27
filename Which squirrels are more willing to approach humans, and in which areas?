@@ -1,0 +1,5 @@
+SELECT  age, location, COUNT(approaches) AS number_of_approaches
+	FROM squirrel_data
+	WHERE approaches = 'True'
+	GROUP BY age, location
+	ORDER BY COUNT(approaches) DESC

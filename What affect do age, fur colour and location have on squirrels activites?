@@ -1,0 +1,16 @@
+Code to analys the squirel data, removing any NULL, '?' values 
+
+
+
+
+SELECT 
+    age, primary_fur_colour, location,
+    SUM(CASE WHEN running = 'True' THEN 1 ELSE 0 END) AS total_running,
+    SUM(CASE WHEN chasing = 'True' THEN 1 ELSE 0 END) AS total_chasing,
+    SUM(CASE WHEN climbing = 'True' THEN 1 ELSE 0 END) AS total_climbing,
+    SUM(CASE WHEN eating = 'True' THEN 1 ELSE 0 END) AS total_eating,
+    SUM(CASE WHEN foraging = 'True' THEN 1 ELSE 0 END) AS total_foraging
+FROM squirrel_data
+WHERE AGE <>'?' AND primary_fur_colour <>'?' AND location <>'?'
+GROUP BY age, primary_fur_colour, location 
+ORDER BY age, primary_fur_colour, location;
